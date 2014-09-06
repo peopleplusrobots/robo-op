@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import processing.core.PApplet;
+import processing.net.Client;
+
 /**
  * Communication stream to the industrial robot.  </br>
  * Links our Processing sketch to the robot's <i>server.mod</i> file.
@@ -17,35 +20,51 @@ import java.net.UnknownHostException;
  * 
  * @author mad
  */
-public class Robot extends Thread{
+public class Robot{
 
+	private PApplet p5;
+	
 	private PrintWriter out;
 	private BufferedReader in;
 	private String ip_6640 = "128.2.109.20";	
 	private String ip_4400 = "128.2.109.111";
-	private String hostAddress = ip_4400;		// UPDATE this IP address with the address from you robot's controller
-	private int portNumber = 1025;
+	private int port = 1025;
+	
+	// Thread variables
+	private boolean running = false;
+	private boolean isInitialized = false;
+	
+	// UPDATE this IP address with the address from you robot's controller
+	// This address should match the IP address you put in the server.mod file
+	private String hostAddress;	
+		
+	public Robot(PApplet p5){
+		this.p5 = p5;
+		hostAddress = ip_4400;	
+	}
+
 	
 	/**
 	 * Connect computer to robot's server to stream 
 	 * live robot targets.
+	 * @return 
 	 * 
 	 * @throws IOException 
 	 * @throws UnknownHostException 
 	 */
-	public Robot(){
+	public String connect(){
 		
-		try {
+		try {			
 			// setup server connection
-			Socket clientSocket = new Socket(hostAddress, portNumber);
+			Socket clientSocket = new Socket(hostAddress, port);
 			this.out = new PrintWriter(clientSocket.getOutputStream(), true);
 			this.in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
 			out.println("Sending Message to Robot!");
-			String roboInput = in.readLine();   		     
-			while (roboInput  != null) {
-				System.out.println("	Input from Robot: "  + roboInput);
-				roboInput = null;
+			String robotInput = in.readLine();   		     
+			while (robotInput  != null) {
+				System.out.println("	Input from Robot: "  + robotInput);
+				robotInput = null;
 			}
 		} catch (UnknownHostException e) {
 			System.err.println("I don't know about host " + hostAddress + 
@@ -59,8 +78,9 @@ public class Robot extends Thread{
 		} 
 
 		// If we made it through, the server connection is all setup!
-		System.out.println("Connection to the Robot is setup on port "+portNumber+".");
+		return "Connection to the Robot is setup on port "+port+".";
 	}
+	
 
 	/**
 	 * Send a string command / target / position to the robot.
@@ -77,7 +97,7 @@ public class Robot extends Thread{
 			String roboInput;		
 			roboInput = in.readLine();			
 			while (roboInput != null) {
-				System.out.println("Received input from Robot: "  + roboInput);
+				System.out.println("Message from Robot: "  + roboInput);
 				roboInput = null;
 			} 
 		} catch (IOException e) {

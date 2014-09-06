@@ -1,6 +1,16 @@
-MODULE live_penCTRL
+MODULE server_v0
 
-   ! Testing the pressure sensitive pen
+! RAPID module to remotely send commands to an industrial robot from 
+! an interactive java application.
+! 
+!
+! Code based off of open-abb-driver {https://github.com/robotics/open-abb-driver}
+!
+!
+! @authors mad & zack
+! (mad) www.madlab.cc
+! (zack)enartdezark.blogspot.com
+  
 
   ! Setup tool and home data
   PERS tooldata MyTool := [TRUE,[[0,0,129.794],[1,0,0,0]],[1,[0,0,-196.3566],[1,0,0,0],0,0,0]];
@@ -21,7 +31,7 @@ MODULE live_penCTRL
 
 
 
-PROC penMain()
+PROC ServerMain()
   VAR num sensorVal;
   VAR bool touching := FALSE;
  
@@ -48,18 +58,18 @@ PROC penMain()
   	  MoveL DeltaZ, v20, z5, MyTool;
   	  
   	  !Get the Current Position and Current RobTarget
-	  CurrPos := CPos();
-	  DeltaZ := CRobT();
+	    CurrPos := CPos();
+	    DeltaZ := CRobT();
   	  
   	ENDIF
   	
-      SocketSend client_socket\Str:="Send Me Something\0D\0A";
+      SocketSend client_socket\Str:="ready for msg\0D\0A";
       ! Live Communication (blocks until it gets a msg)
       SocketReceive client_socket\Str:=received_string;
       TPWrite "Incoming Msg:  "+received_string;
 
       ! Verify to client that we received the message
-      SocketSend client_socket\Str:="Got it!\0D\0A";
+      SocketSend client_socket\Str:="msg received\0D\0A";
       
 	  ! Translate String to SensorValue and Print
 	  ! If we get a number, it means we're touching something	 

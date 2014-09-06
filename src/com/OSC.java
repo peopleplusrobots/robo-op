@@ -1,12 +1,14 @@
 package com;
 
-public class Arduino{
+public class OSC {
 
-	public Arduino(){
+	public OSC(){
 		
 	}
 
 	public String start() {
+		
 		return "dummy function";
 	}
+	
 }

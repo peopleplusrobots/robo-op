@@ -2,10 +2,11 @@ package gui;
 
 import java.awt.Frame;
 
+import com.Arduino;
+import com.OSC;
 import com.Robot;
 
 import processing.core.PApplet;
-
 
 /**
  * This is our Processing sketch. 	<br/>
@@ -15,8 +16,12 @@ import processing.core.PApplet;
  */
 public class GUI extends PApplet {
 
-	private Frame parent; 
+	private Frame parent;
+	
+	// External Communication Streams
 	private Robot robot;
+	private Arduino arduino;
+	private OSC osc;
 		
 	/*
 	 *  Add additional variables below:
@@ -45,20 +50,34 @@ public class GUI extends PApplet {
 		size(parent.getWidth(),parent.getHeight());
 			
 		// create a communication stream to the robot
-		println("Setting up robot connection ... ");
-		this.robot = new Robot();
-		
+		println("Setting up robot's socket connection ... ");
+		this.robot = new Robot(this);
+		thread("startRobot");
 		
 	}
+	
+	public String startRobot(){
+		return robot.connect();
+	}	
+	public String startArduino(){
+		return arduino.start();
+	}	
+	public String startOSC(){
+		return osc.start();
+	}
+	
 	
 	/**
 	 * Program loop
 	 */
+	int counter = 0;
 	public void draw() {
 		smooth();
-		background(100);
+		background(counter);
 		
 		// Your code goes here:
+		counter+=1;
+		counter %=255;
 
 	}
 	
@@ -87,20 +106,46 @@ public class GUI extends PApplet {
 	 * Send new target when mouse is clicked
 	 */
 	public void mouseClicked(){
+
+		if (counter%2 == 0)
+			exit();
+		else
+			robot.sendMessage(sendDummyTarget());
 		
-		for (int i=2; i<6; i++){
-			robot.sendMessage(generateMoveTargets(i));
-			println("Sending "+generateMoveTargets(i)+" to robot");
-		}
-//		String msg = generateDummyTarget();
-//		robotCOM.sendMessage(msg);
-//		println("Sending "+msg+" to robot");
+
 		
 		background(255,0,0);
 	}
+
 	
-	private String generateMoveTargets(int index){
-		int x = 500 + (index*100);
-		return "["+ x +",0,0,5,5,5]";		
+	private String sendDummyTarget(){
+		String key = "point";
+		String val = "[10,100,0,15,150,5]";
+		return key + "/" + val + ";";
+	}
+	
+	private String sendRobotTarget(int x, int y, int z, int rx, int ry, int rz){
+		String key = "point";
+		String val = "["+x+","+"y"+","+z+","+rx+","+ry+","+rz+"]";
+		return key + "/" + val + ";";
+	}
+	
+	private String sendRelTool(int x, int y, int z, int rx, int ry, int rz){
+		String key = "offset";
+		String val = "["+x+","+"y"+","+z+","+rx+","+ry+","+rz+"]";
+		return key + "/" + val + ";";
+	}
+	
+	private String quit(){
+		String key = "flag";
+		String val = "exit";
+		return key + "/" + val + ";";
+	}
+	
+	@Override
+	public void exit(){
+		robot.sendMessage(quit());
+	
+		System.exit(0);
 	}
 }
