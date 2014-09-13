@@ -14,6 +14,7 @@ import processing.core.PApplet;
  * 
  * @author mad
  */
+@SuppressWarnings("serial")
 public class GUI extends PApplet {
 
 	private Frame parent;
@@ -105,47 +106,56 @@ public class GUI extends PApplet {
 	/**
 	 * Send new target when mouse is clicked
 	 */
+	int testCounter = 0;
 	public void mouseClicked(){
 
-		if (counter%2 == 0)
-			exit();
-		else
-			robot.sendMessage(sendDummyTarget());
+		println(testCounter);
 		
-
+//		if (testCounter == 0)
+//			robot.sendDummyTarget();
+//		if (testCounter == 1)
+//			robot.moveTo(900, -300, 1500, -80, 60, -100);
+//		else if (testCounter == 2)
+//			robot.moveOffset(5, 5, 10, 0, 0, 0);
+//		else if (testCounter == 3)
+//			robot.getSpeed();
+//		else if (testCounter == 4)
+//			robot.getZone();
+//		else if (testCounter == 5){
+//			println("trying to set speed: ");
+//			robot.setSpeed(10, 30, 0, 0);
+//			robot.getSpeed();
+//		}
+//		else if (testCounter == 6){
+//			println("trying to set zone: ");
+//			robot.setZone(Robot.z15);
+//			robot.getZone();
+//		}
+		if (testCounter == 1)
+			robot.setPosition(900,-280,1400);
+		if (testCounter == 2)
+			robot.setOrientation(-45,50,-45);
+		if (testCounter == 3)
+			robot.getConfiguration();
+		if (testCounter == 4)
+			robot.getExternalAxes();
+		if (testCounter == 5)
+			robot.getRobTarget();
+		if (testCounter == 6)
+			robot.setConfiguration("[-1,0,-1,0]");
+		if (testCounter == 7)
+			robot.setExternalAxes("[100,9E+09,9E+09,9E+09,9E+09,25]");
+		else if (testCounter == 8)
+			robot.quit();
 		
+		testCounter++;
 		background(255,0,0);
 	}
 
 	
-	private String sendDummyTarget(){
-		String key = "point";
-		String val = "[10,100,0,15,150,5]";
-		return key + "/" + val + ";";
-	}
-	
-	private String sendRobotTarget(int x, int y, int z, int rx, int ry, int rz){
-		String key = "point";
-		String val = "["+x+","+"y"+","+z+","+rx+","+ry+","+rz+"]";
-		return key + "/" + val + ";";
-	}
-	
-	private String sendRelTool(int x, int y, int z, int rx, int ry, int rz){
-		String key = "offset";
-		String val = "["+x+","+"y"+","+z+","+rx+","+ry+","+rz+"]";
-		return key + "/" + val + ";";
-	}
-	
-	private String quit(){
-		String key = "flag";
-		String val = "exit";
-		return key + "/" + val + ";";
-	}
-	
 	@Override
 	public void exit(){
-		robot.sendMessage(quit());
-	
+		robot.quit();
 		System.exit(0);
 	}
 }
