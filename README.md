@@ -1,6 +1,6 @@
-Robo.Op
+Robo.Op<br/>
+Industrial Robots. Open for Creativity.
 =====
-## Industrial Robots. Open for Creativity.
 
 Welcome to _Robo.Op_, an open hardware project for hacking industrial robots.
 <br/><br/>
