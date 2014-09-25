@@ -1,4 +1,4 @@
 Robo.Op
 =====
 
-Robo.Op is an open hardware project for hacking industrial robots
+Welcome to _Robo.Op_, an open hardware project for hacking industrial robots.
