@@ -2,7 +2,7 @@ package gui;
 
 import java.awt.Frame;
 
-import com.Arduino;
+import com.Serial;
 import com.OSC;
 import com.Robot;
 
@@ -25,11 +25,11 @@ public class GUI extends PApplet {
 	
 	// External Communication Streams
 	private Robot robot;
-	private Arduino arduino;
+	private Serial serial;
 	private OSC osc;
 	
 	private boolean robotMode = false;
-	private boolean arduinoMode = false;
+	private boolean serialMode = false;
 	private boolean oscMode = true;
 		
 	/*
@@ -78,8 +78,8 @@ public class GUI extends PApplet {
 	public String startRobot(){
 		return robot.connect();
 	}	
-	public String startArduino(){
-		return arduino.start();
+	public String startSerial(){
+		return serial.start();
 	}	
 	public String startOSC(){
 		return osc.start();
@@ -145,6 +145,12 @@ public class GUI extends PApplet {
 //				robot.getZone();
 //			else if (testCounter == 5){
 //				println("trying to set speed: ");
+			
+			
+			robot.setSpeed(100, 50, 0, 0);
+			robot.setPosition(0, 0, 0);
+			
+			
 //				robot.setSpeed(10, 30, 0, 0);
 //				robot.getSpeed();
 //			}
