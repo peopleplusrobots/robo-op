@@ -1,4 +1,4 @@
-R0BOT
+Robo.Op
 =====
 
-R0BOT is an open hardware project for hacking industrial robots
+Robo.Op is an open hardware project for hacking industrial robots
