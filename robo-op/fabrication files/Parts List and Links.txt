@@ -1,0 +1,29 @@
+T-Slot:  http://www.mcmaster.com/#t-slotted-hanging-track/=tx0f2r
+
+Mil Spec Connectors: http://www.mcmaster.com/#mil.-spec.-pin-and-socket-connectors/=tx0qmi
+
+Electric Receptacles: http://www.mcmaster.com/#nema-receptacles/=tx0rou
+
+Acrylic Weld: http://www.eplastics.com/PLEXIGLASS-GLUE-ADHESIVE-IPS-4-4OZ?origin=product-search&kwd=&source=pla&gclid=CjwKEAjw456hBRDQ4eqg8MzA2W0SJABI2gJ8mldXjljmmHGwx4iq0yFkFYdkL-ueIThB0pEcD_ARlRoCdWDw_wcB
+
+Stack Headers: https://www.sparkfun.com/products/10007
+
+MicroController:  http://store.arduino.cc ;  https://www.sparkfun.com/products/12757
+
+Xbee Shield for Microcontroller: https://www.sparkfun.com/products/12847
+
+Xbee Explorer: https://www.sparkfun.com/products/11697
+
+Xbee RF Modules: http://www.digi.com/products/wireless-wired-embedded-solutions/zigbee-rf-modules/
+
+Acrylic: This item can often be purchased locally.  It is important to know actual dimensions of thickness as it may effect the width of adjacent parts.  The original model uses one sheet of .22" (6mm) and one sheet .117" (3mm) acrylic.
+
+Circuit board:  A generic example is included in the voltage conversion (VC) pin mapping diagram describing signal out from robot to VC, VC to microcontroller, microcontroller to VC and VC to robot.
+
+Circuity components:
+
+Pin Mapping: Low Voltage:  Please see your industrial robot controller documents for a list of available low-voltage (signal) connections (Examples of the original configuration are included, but only to reference the type of document you'll need to map connections). It is not possible to describe exactly what connections one will have available, and therefore which robot signal pins need to connect to microcontroller signal pins.  
+
+Pin Mapping: High Voltage:  Please see your industrial robot controller documents for a list of available high-voltage power connections (Examples of the original configuration are included, but only to reference the type of document you'll need to map connections). It is not possible to describe exactly what connections one will have available, and therefore which robot signal power need to connect to power receptacle pins.
+
+Assembly: Current version is mainly adhered with acrylic weld.  The pieces containing the aluminum track are stacked 2 deep in addition to the outside plate (total 3 layers of .22"(6mm).  The covers for enclosures B and D (high voltage) can be attached in various ways.  We chose to drill, tap and screw them in for safety.  It is imperative that the electric receptacle enclosures be safely sealed from human contact.
