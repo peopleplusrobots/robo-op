@@ -25,8 +25,13 @@ public class Robot{
 	
 	private PrintWriter out;
 	private BufferedReader in;
+	
+	// below are *example* IP addresses for two different robot controllers; these WILL NOT WORK for your configuration: 
 	private static final String IP_6640 = "128.2.109.20";	
 	private static final String IP_4400 = "128.2.109.111";
+	// add your robot controller's IP address below:
+	private static final String myIPAddr = "";
+	
 	private static final int port = 1025;
 	
 	/**
@@ -54,7 +59,9 @@ public class Robot{
 	 */
 	public Robot(PApplet p5){
 		this.p5 = p5;
-		hostAddress = IP_4400;	
+		
+//		hostAddress = myIPAddr; // un-comment whenyou've updated myIPAddr
+		hostAddress = IP_4400;	// comment out when you've updated myIPAddr
 	}
 
 	

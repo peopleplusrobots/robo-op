@@ -4,7 +4,12 @@ import gui.GUI;
 import oscP5.*;
 import netP5.*;
 
-
+/**
+ * Connects the oscP5 to our workflow.
+ * 
+ * For more implementation details see: <a href="http://www.sojamo.de/libraries/oscP5/">oscP5</a>
+ * @author mad
+ */
 public class OSC {
 
 	private GUI p5;
@@ -14,7 +19,7 @@ public class OSC {
 
 	private static final int PORT  = 12001;
 	private static final String IP_DEFAULT 		 = "127.0.0.1"; 
-	// fill in custom IP addresses to other OSC compatible softwares
+	// fill in custom IP addresses to other OSC compatible softwares, for example:
 	private static final String IP_GRASSHOPPER3D = "172.16.214.128";
 	private static final String IP_VVVV			 = "XXX.XX.XXX.XXX";
 	private static final String IP_MAXMSP 		 = "XXX.XX.XXX.XXX";
@@ -29,52 +34,39 @@ public class OSC {
 		addr = new NetAddress(IP_DEFAULT,PORT);
 		
 		/*
-		 * You can write custom functions to handle incoming messages.
+		 * You can write custom functions to handle incoming messages, for example:
 		 */
 		oscP5.plug(this, "testCOM", "/test");
 		
 		return "OSC is setup";
 	}
-	
-	
+		
 	
 	/**
-	 * Example for how to create a listener for a particular OSC message.
+	 * Example for creating a specific listener for incoming messages through oscP5.plug()
 	 */
 	public void testCOM(String s0, String s1, String s2, String s3, String s4){
 		String msg = s0+" "+s1+" "+s2+" "+s3+" "+s4;
 		System.out.println("testCOM: "+msg);
 		
 		// pass the message to the GUI for visualizing or dispatching
-		p5.setTest(msg); 
+		p5.setOscMsg(msg); 
 	}
 	
 	/**
-	 * Example for how to send a message through OSC
+	 * Sends a formatted message through OSC.
+	 * 
+	 * @param typetag - type tag for the message
+	 * @param message - message to send
 	 */
-	public void sendDummyMessage(){
+	public void sendMsg(String typetag, String message){
 		
-		OscMessage msg = new OscMessage("/test");
-		msg.add("this");
-		msg.add("is");
-		msg.add("just");
-		msg.add("a");
-		msg.add(Math.random()+"");
+		OscMessage msg = new OscMessage("/"+typetag);
+		msg.add(message);
 		
 		oscP5.send(msg,addr);		
 	}
 	
-	/**
-	 * Example for how to send a message through OSC
-	 */
-	public void sendRandomPt(){
-		OscMessage msg = new OscMessage("/point");
-		msg.add(Math.random()+"");
-		msg.add(Math.random()+"");
-		msg.add(Math.random()+"");
-		
-		oscP5.send(msg,addr);	
-	}
 	
 	/**
 	 * Listens for an OSC message 

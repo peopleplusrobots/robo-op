@@ -11,8 +11,5 @@
 	<classpathentry kind="lib" path="lib/opencv-245.jar"/>
 	<classpathentry kind="lib" path="lib/oscP5.jar"/>
 	<classpathentry kind="lib" path="lib/peasycam.jar"/>
-	<classpathentry kind="lib" path="/Users/mad/Documents/ACADEMIC/WIP/OBot/lib/net.jar"/>
-	<classpathentry kind="lib" path="/Users/mad/Documents/ACADEMIC/WIP/OBot/lib/RXTXcomm.jar"/>
-	<classpathentry kind="lib" path="/Users/mad/Documents/ACADEMIC/WIP/OBot/lib/serial.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
