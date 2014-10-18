@@ -11,8 +11,8 @@ We built _Robo.Op_ to bypass the expensive, proprietary software and hardware cu
 <br/><br/>
 _Robo.Op_ is made of three components:<br/>
 <ul>
-1.  The _Robot Tool Adaptor (RTA)_ – a universal adaptor sheild for developing affordable, custom tools for creative robotics.
-2.  A Processing Interface – a simplified, modular software interface for cross-platform programming of IRs.
+1.  The _Robot Tool Adaptor (RTA)_ – a universal adaptor sheild for developing affordable, custom tools for creative robotics.<br/>
+2.  A Processing Interface – a simplified, modular software interface for cross-platform programming of IRs.<br/>
 3.  A Centralized Knowledge Hub - this github-hosted project for sharing knowledge, tools, and code.
 </ul>
 <br/><br/>
