@@ -10,9 +10,9 @@ _Robo.Op_ makes it cheaper and easier to customize your IR for creative use, so 
 We built _Robo.Op_ to bypass the expensive, proprietary software and hardware currently offered by robotics companies. _Robo.Op_ enables artists and designers to _(a)_ develop affordable custom tools for creative robotics, and _(b)_ share tools and knowledge across robotic platforms.
 <br/><br/>
 _Robo.Op_ is made of three components:<br/>
-1. The _Robot Tool Adaptor (RTA)_ – a universal adaptor sheild for developing affordable, custom tools for creative robotics.<br/>
-2. A Processing Interface – a simplified, modular software interface for cross-platform programming of IRs.<br/>
-3. A Centralized Knowledge Hub - this github-hosted project for sharing knowledge, tools, and code.
+1.  The _Robot Tool Adaptor (RTA)_ – a universal adaptor sheild for developing affordable, custom tools for creative robotics.
+2.  A Processing Interface – a simplified, modular software interface for cross-platform programming of IRs.
+3.  A Centralized Knowledge Hub - this github-hosted project for sharing knowledge, tools, and code.
 <br/><br/>
 The full *Project Overview* can be found [here](https://github.com/peopleplusrobots/robo-op/wiki/1.-Project-Overview).
 <br/>
