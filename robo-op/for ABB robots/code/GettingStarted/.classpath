@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/opencv_processing/library/opencv_processing.jar" sourcepath="/Users/mad/Documents/Processing/libraries/opencv_processing/src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="http://atduskgreg.github.io/opencv-processing/reference/index.html"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/opencv_processing/library/opencv-245.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/GSVideo/library/gstreamer-java.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Users/mad/Documents/Processing/libraries/GSVideo/library/gstreamer/macosx64"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/GSVideo/library/GSVideo.jar" sourcepath="/Users/mad/Documents/Processing/libraries/GSVideo/src/codeanticode.zip"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/GSVideo/library/jna.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/Contents/Resources/Java/core/library/core.jar" sourcepath="/Users/mad/Documents/Processing/processing-read-only.zip"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/Contents/Resources/Java/core/library/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/Contents/Resources/Java/core/library/jogl-all.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/controlP5/library/controlP5.jar" sourcepath="/bb3DP_brace/C:/Users/t_gannm/Documents/Processing/libraries/controlP5/src">
+		<attributes>
+			<attribute name="javadoc_location" value="http://www.sojamo.com/libraries/controlP5/reference/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/gifAnimation/library/gifAnimation.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Users/mad/Documents/Processing/libraries/gifAnimation/docs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/twitter4j/library/twitter4j.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/modes/java/libraries/net/library/net.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/libraries/oscP5/library/oscP5.jar"/>
+	<classpathentry kind="lib" path="/Users/mad/Documents/Processing/Contents/Resources/Java/modes/java/libraries/video/library/video.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

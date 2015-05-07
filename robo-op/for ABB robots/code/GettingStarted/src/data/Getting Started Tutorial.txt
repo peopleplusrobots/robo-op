@@ -1,0 +1,89 @@
+This tutorial presumes some basics knowledge in programming in Processing and running modules on an ABB IRB.
+
+** Before We Begin
+(1) Opening the Eclipse Project
+	* See _______ tutorial (Processing in Eclipse)
+	* Contributor libraries for Robo.Op examples are already included in the project's _lib_ folder.
+
+(2) Loading the _Server.mod_ file onto your robot's controller
+	* Two ways: over USB or FTP
+	* See _______ tutorial (futurecnc)
+
+** Configuring Robo.Op for your ABB IRB
+**** Make Robot.java a library ––> add setIP(ipAddr) function
+To configure the Robo.Op framework for your specific robot setup, you'll need to first make a few edits to the _Server.mod_ file. You can edit this file using any text editor (I recommend SublimeText) or using RobotStudio's RAPID Editor.
+
+(1) Adding the contorller's IP address
+Communication between your Processing sketch and the Robot is handled over TCP/IP. Oddly enough, our _Server.mod_ program running on the controller needs to know it's own IP address. Update the _Server.mod_ file with the IP address of its controller.
+	* Server.mod – update IP in _ConnectToClient()_
+
+
+(2) Configuring Digital Out signals
+Sending Digital Out (DO) signals are a way to remotely trigger 12V power at the end of the robot. We can use these extremely useful signals to power and communicate to the actuators or sensors of a custom end-effector. Each of these Digital Outs have system-specifics names that _may differ_ from robot to robot. Therefore, we need to check the _Server.mod_ file to make sure your system's DO names match.
+
+Open the _Server.mod_ file and scroll down to the _swapIO()_ method.
+
+By default, the _Server.mod_ file uses ABB's suggested naming convention:
+* The Digital Out 1 signal is named _do1_, the Digital Out 2 signal is named _do2_, the Digital Out 3 signal is named _do3_, and so on.
+
+We've only included 6 DOs, but your system may have more. Add more using the same logic:
+			IF io = 9 THEN
+                InvertDO do9;
+                TPWrite "Sent do"+val+" to "\Num:=DOutput(do9);
+            ENDIF
+
+But your specific system may use a different naming convention for Digital Outs. My system, for example, uses a more elaborate naming convention, so my _swapIO()_ method looks like this:
+			IF io = 2 THEN
+                InvertDO D651_11_DO2;
+                TPWrite "Sent do"+val+" to "\Num:=DOutput(D651_11_DO2);
+            ENDIF
+
+Update _swapIO()_ with your system's DO names. You can check the names of these Digital Out signals by looking at the I/O panel on your Teach Pendant:
+	
+
+**Checking for Errors
+Once you have updated _Server.mod_ and _SettingUp.java_ with the robot controller's IP address, and you have updated _Server.mod_ with the proper DO names, you can run _Server.mod_ to double-check for any editing errors.
+
+(1) Run _Server.mod_
+If you get no error warnings on the teach pendant, and instead see 'Connected!' printed out ... Congratulations! You are all set up to run an example demo.
+
+If you _do_ get an error warning, chances are it's one of these:
+
+Wrong IP address:
+
+Unrecognizable Digital Out name:
+
+
+
+
+**Getting Processing to Talk to your Robot
+Now that _Server.mod_ is configured for your specific robot setup, we can connect our example program, _SettingUp_, to the robot.
+
+_SettingUp_ is a really simple program that lets you move a robot in the XZ plane using the arrow keys on your computer.
+
+
+There are two things to keep in mind before you run the program:
+	*In the _SettingUp.java_ file, make sure you set the correct IP address and port number for the Robot object. Both should match the IP and port in _Server.mod_.
+	*If you're working in a space with many wi-fi networks, you need to *make sure your computer and the robot controller are on the same network*. Otherwise your computer and the robot controller won't be able to see one another.
+
+(1) Let's Do This!
+To run the _SettingUp_ example, first load and run _Server.mod_. When you see a 'Waiting for Connection' message on the Teach Pendant, you can run _SettingUp.java_.
+
+At this point, the robot is 'listening' for commands from your processing sketch. Use the left and right arrow keys to move incrementally in the -X and X directions. Use the up and down keys to move incrementally in the -Z and Z directions.
+
+
+**Other Example Projects
+The other example projects included in Robo.Op will show you the basics of how to connect to other devices and softwares. For example: 
+	*_PolygonDrawer_ shows how connect Grasshopper3D to the robot over OSC.
+	*_Android2Robot_ shows how to connect an Android device to the robot, also over OSC.
+	*_LightTracer_ shows how to track and trace the robot's movement using a webcam and OpenCV.
+	*_TweetbotIRL_ shows how to send a message to the robot over Twitter.
+
+These example are just a small sample of what's possible in Interactive and Creative Industrial Robotics. The beauty and benefit of using Processing to  drive communication to the robot, is that now we can pull libraries and resources from the entire Processing community! So doing creative robotics projects with _projection mapping_, _Arduino or physical computing_, _physics simulation_, etc., are all the more accessible and easy to integrate.
+
+
+
+
+
+	
+** Extending Robot.java and Server.mod

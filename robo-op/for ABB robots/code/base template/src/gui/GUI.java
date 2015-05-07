@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Frame;
+import java.util.ArrayList;
 
 import com.Serial;
 import com.OSC;
@@ -29,9 +30,9 @@ public class GUI extends PApplet {
 	private OSC osc;
 	
 	// use these flags to turn on/off different communication modes
-	private boolean robotMode = true;
+	public  boolean robotMode  = false;
 	private boolean serialMode = false;
-	private boolean oscMode = false;
+	private boolean oscMode    = true;
 		
 	/*
 	 *  Add additional variables below:
@@ -156,7 +157,7 @@ public class GUI extends PApplet {
 	//////////////////////////////////////////////////////////////////////////////////
 	
 	/**
-	 * Examples show how to use key press to send/receive commands
+	 * Example: use key press to send/receive commands
 	 */
 	public void keyPressed(){
 		
@@ -171,22 +172,31 @@ public class GUI extends PApplet {
 	
 	
 	/**
-	 * Examples showing how to send/receive commands based on mouse clicks
+	 * Example: use mouse click to send/receive commands
 	 */
 	int testCounter = 0;
-	public void mouseClicked(){
+	public void mouseReleased(){
 
-		if (oscMode){
-			// add custom mouse pressed commands below, for example:
-			osc.sendMsg("test","this is just a test");
+//		if (oscMode){			
+//			// add custom mouse pressed commands below, for example:
+//			float r = random(0,10);
+//			osc.sendMsg("test","this is just a test "+r);
+//		}
+//		
+		if (robotMode){		
+			// reset to a neutral config
+			robot.moveTo(900, -300, 1500, 60,60,60);			
 		}
 		
-		if (robotMode){
-			
-			// add custom mouse pressed commands below, for example:
-			robot.moveTo(900, -300, 1500, -80, 60, -100);
-			robot.moveOffset(15, 5, 20, 0, 0, 0);	
-			
+		// send the robot's current position
+		if (oscMode && robotMode){
+			ArrayList<String> msg = new ArrayList<String>();
+			float[] xyz = robot.getPosition();
+			msg.add(""+xyz[0]);
+			msg.add(""+xyz[1]);
+			msg.add(""+xyz[2]);
+			// send the robot's position to grasshopper
+			osc.sendMsg("pos", msg);
 		}
 
 		// flash the background red when mouse is pressed
@@ -206,5 +216,10 @@ public class GUI extends PApplet {
 	public void exit(){
 		robot.quit();
 		System.exit(0);
+	}
+
+
+	public Robot getRobot() {
+		return robot;
 	}
 }

@@ -136,6 +136,7 @@ public class Robot{
 	public void moveOffset(int x, int y, int z, int rx, int ry, int rz){
 		String key = "offset";
 		String val = "["+x+","+y+","+z+","+rx+","+ry+","+rz+"]";
+		System.out.println("offsetting");
 		sendMessage( (key + "/" + val + ";"), true );
 	}
 	
