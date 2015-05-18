@@ -5,7 +5,7 @@
 _Robo.Op_ is an open hardware / open software platform for hacking industrial robots (IRs). 
 _Robo.Op_ makes it cheaper and easier to customize your IR for creative use, so you can _explore the fringes of industrial robotics_.
 <br/><br/>
-_See [this](https://github.com/peopleplusrobots/robo-op/wiki/3.-Software:-Workflow-&-Integration) tutorial to get started._
+_See [this](https://github.com/peopleplusrobots/robo-op/wiki/3.-Software:-Getting-Started-Tutorial) tutorial to get started._
 <br/><br/>
 ![Software Workflow](https://github.com/peopleplusrobots/robo-op/blob/master/robo-op/for%20ABB%20robots/code/software%20workflow.png)
 <br/><br/>
