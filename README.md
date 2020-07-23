@@ -1,5 +1,5 @@
-##Robo.Op
-###*Industrial Robots. Open for Creativity.*
+## Robo.Op
+### *Industrial Robots. Open for Creativity.*
 
 
 _Robo.Op_ is an open hardware / open software platform for hacking industrial robots (IRs). 
