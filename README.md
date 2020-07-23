@@ -17,9 +17,8 @@ _Robo.Op_ is made of three components:<br/>
 <li>A Processing Interface – a simplified, modular software interface for cross-platform programming of IRs.</li>
 <li>A Centralized Knowledge Hub - this github-hosted project for sharing knowledge, tools, and code.</li>
 </ul>
-<br/><br/>
-The full *Project Overview* can be found [here](https://github.com/peopleplusrobots/robo-op/wiki/1.-Project-Overview).
-<br/>
+
+> The full Project Overview can be found [here](https://github.com/peopleplusrobots/robo-op/wiki/1.-Project-Overview).
 
 #### Opening Hardware
 For tutorials on adapting, fabricating, & assembling your RTA, click [here](https://github.com/peopleplusrobots/robo-op/wiki/2.-Hardware:-Design,-Fabrication-&-Assembly).
