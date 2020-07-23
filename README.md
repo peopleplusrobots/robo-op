@@ -1,5 +1,5 @@
 ## Robo.Op
-### *Industrial Robots. Open for Creativity.*
+### Industrial Robots. Open for Creativity.
 
 
 _Robo.Op_ is an open hardware / open software platform for hacking industrial robots (IRs). 
@@ -20,20 +20,17 @@ _Robo.Op_ is made of three components:<br/>
 <br/><br/>
 The full *Project Overview* can be found [here](https://github.com/peopleplusrobots/robo-op/wiki/1.-Project-Overview).
 <br/>
-***
+
 #### Opening Hardware
 For tutorials on adapting, fabricating, & assembling your RTA, click [here](https://github.com/peopleplusrobots/robo-op/wiki/2.-Hardware:-Design,-Fabrication-&-Assembly).
-<br/>
+
 To download the RTA fabrication files, click [here](https://github.com/peopleplusrobots/robo-op/tree/master/robo-op/for%20ABB%20robots/fabrication%20files).
-<br/><br/>
-***
+
+
 #### Opening Software
 For tutorials for using our Processing Interface to control your IR, click [here](https://github.com/peopleplusrobots/robo-op/wiki/3.-Software:-Workflow-&-Integration).
-<br/>
+
 To download the code, click [here](https://github.com/peopleplusrobots/robo-op/tree/master/robo-op/for%20ABB%20robots/code).
-<br/><br/>
-***
+
 #### Sharing Knowledge
 Visit the [wiki](https://github.com/peopleplusrobots/robo-op/wiki) for resources related to *Robo.Op* and creative robotics.
-<br/><br/>
-***
